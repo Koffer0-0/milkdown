@@ -1,11 +1,11 @@
 {
-  "name": "@milkdown/crepe",
+  "name": "@complexusprada/crepe",
   "type": "module",
-  "version": "7.15.10",
+  "version": "7.15.7",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Milkdown/milkdown.git",
+    "url": "git+https://github.com/cyberlabskz/milkdown.git",
     "directory": "packages/crepe"
   },
   "keywords": [
