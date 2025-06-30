@@ -12,7 +12,7 @@
     display: flex;
     background: var(--crepe-color-surface);
     box-shadow: var(--crepe-shadow-1);
-    border-radius: 8px;
+    border-radius: 0px;
     overflow: hidden;
 
     .divider {

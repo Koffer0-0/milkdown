@@ -1,7 +1,7 @@
 {
   "name": "@milkdown/crepe",
   "type": "module",
-  "version": "7.15.0",
+  "version": "7.15.10",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -58,7 +58,8 @@
     "./theme/nord.css": "./src/theme/nord/style.css",
     "./theme/nord-dark.css": "./src/theme/nord-dark/style.css",
     "./theme/frame.css": "./src/theme/frame/style.css",
-    "./theme/frame-dark.css": "./src/theme/frame-dark/style.css"
+    "./theme/frame-dark.css": "./src/theme/frame-dark/style.css",
+    "./theme/irange-dark.css": "./src/theme/irange-dark/style.css"
   },
   "main": "./src/index.ts",
   "publishConfig": {
@@ -151,7 +152,7 @@
     "@codemirror/state": "^6.4.1",
     "@codemirror/theme-one-dark": "^6.1.2",
     "@codemirror/view": "^6.16.0",
-    "@milkdown/kit": "workspace:*",
+    "@milkdown/kit": "7.15.0",
     "@types/lodash-es": "^4.17.12",
     "clsx": "^2.0.0",
     "codemirror": "^6.0.1",
