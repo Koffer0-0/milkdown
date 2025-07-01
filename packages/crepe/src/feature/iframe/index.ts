@@ -5,7 +5,6 @@ import { crepeFeatureConfig } from '../../core/slice'
 import { CrepeFeature } from '..'
 import { toggleIframeCommand } from './command'
 import directive from 'remark-directive'
-import { visit } from 'unist-util-visit'
 
 const remarkDirective = $remark('iframe', () => directive)
 
@@ -89,28 +88,6 @@ export const inputRule = $inputRule(
     )
 )
 
-export const remarkIgnoreDirectives = () => {
-  return (tree: any) => {
-    visit(tree, (node: any, index: any, parent: any) => {
-      if (
-        (node.type === 'textDirective' ||
-          node.type === 'leafDirective' ||
-          node.type === 'containerDirective') &&
-        node.name !== 'iframe'
-      ) {
-        if (parent && typeof index === 'number') {
-          parent.children.splice(index, 1)
-        }
-      }
-    })
-  }
-}
-
-export const remarkIgnoreUnknownDirectives = $remark(
-  'remarkIgnoreUnknownDirectives',
-  () => remarkIgnoreDirectives
-)
-
 export interface IframeConfig {}
 
 export type IframeFeatureConfig = Partial<IframeConfig>
@@ -127,7 +104,6 @@ export const iframe: DefineFeature<IframeFeatureConfig> = (editor) => {
   // })
 
   editor
-    .use(remarkIgnoreUnknownDirectives)
     .use(remarkDirective)
     .use(iframeNodeSchema)
     .use(iframeInputRule)

@@ -1,7 +1,7 @@
 {
   "name": "@complexusprada/crepe",
   "type": "module",
-  "version": "7.15.12",
+  "version": "7.15.13",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -161,7 +161,7 @@
     "lodash-es": "^4.17.21",
     "nanoid": "^5.0.9",
     "prosemirror-virtual-cursor": "^0.4.2",
-    "remark-directive": "^4.0.0",
+    "remark-directive": "^3.0.0",
     "remark-math": "^6.0.0",
     "tslib": "^2.8.1",
     "unist-util-visit": "^5.0.0",
