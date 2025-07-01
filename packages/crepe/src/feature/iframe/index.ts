@@ -1,9 +1,12 @@
-import { $inputRule, $nodeSchema } from '@milkdown/kit/utils'
+import { $inputRule, $nodeSchema, $remark } from '@milkdown/kit/utils'
 import { InputRule } from '@milkdown/kit/prose/inputrules'
 import type { DefineFeature } from '../shared'
 import { crepeFeatureConfig } from '../../core/slice'
 import { CrepeFeature } from '..'
 import { toggleIframeCommand } from './command'
+import directive from 'remark-directive'
+
+const remarkDirective = $remark('iframe', () => directive)
 
 export const iframeId = 'iframe'
 
@@ -46,20 +49,10 @@ export const iframeNodeSchema = $nodeSchema(iframeId, () => ({
     },
   ],
   toDOM: (node) => {
-    return [
-      'iframe',
-      {
-        src: node.attrs.src,
-        width: node.attrs.width,
-        height: node.attrs.height,
-        title: node.attrs.title,
-        frameborder: '0',
-        allowfullscreen: 'true',
-      },
-    ]
+    return ['iframe', node.attrs]
   },
   parseMarkdown: {
-    match: (node) => node.type === 'iframe',
+    match: (node) => node.type === 'leafDirective' && node.name === 'iframe',
     runner: (state, node, type) => {
       state.addNode(type, { src: (node.attributes as { src: string }).src })
     },
@@ -67,7 +60,7 @@ export const iframeNodeSchema = $nodeSchema(iframeId, () => ({
   toMarkdown: {
     match: (node) => node.type.name === iframeId,
     runner: (state, node) => {
-      state.addNode('iframe', undefined, undefined, {
+      state.addNode('leafDirective', undefined, undefined, {
         name: 'iframe',
         attributes: { src: node.attrs.src },
       })
@@ -110,6 +103,10 @@ export const iframe: DefineFeature<IframeFeatureConfig> = (editor) => {
   //   })
   // })
 
-  editor.use([...iframeNodeSchema, iframeInputRule]).use(toggleIframeCommand)
+  editor
+    .use(remarkDirective)
+    .use(iframeNodeSchema)
+    .use(iframeInputRule)
+    .use(toggleIframeCommand)
   // .use(iframeTooltip)
 }
