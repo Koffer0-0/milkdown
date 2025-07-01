@@ -132,7 +132,7 @@
       "./theme/nord.css": "./lib/theme/nord/style.css",
       "./theme/nord-dark.css": "./lib/theme/nord-dark/style.css",
       "./theme/frame.css": "./lib/theme/frame/style.css",
-      "./theme/frame-dark.css": "./lib/theme/frame-dark/style.css"
+      "./theme/frame-dark.css": "./lib/theme/frame-dark/style.css",
       "./theme/irange-dark.css": "./lib/theme/irange-dark/style.css"
     }
   },
