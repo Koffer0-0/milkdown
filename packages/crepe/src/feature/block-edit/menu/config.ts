@@ -43,6 +43,7 @@ import {
   todoListIcon,
 } from '../../../icons'
 import { GroupBuilder, type MenuItemGroup } from '../../../utils/group-builder'
+import { toggleIframeCommand } from '../../iframe/command'
 
 export function getGroups(
   filter?: string,
@@ -352,6 +353,35 @@ export function getGroups(
             nodeType: codeBlock,
             attrs: { language: 'LaTex' },
           })
+        },
+      })
+    }
+
+    if (config?.advancedGroup?.iframe !== null && isLatexEnabled) {
+      advancedGroup.addItem('iframe', {
+        label: config?.advancedGroup?.iframe?.label ?? 'Iframe',
+        icon: config?.advancedGroup?.iframe?.icon ?? functionsIcon,
+        onRun: (ctx) => {
+          // const view = ctx.get(editorViewCtx)
+          // const { dispatch, state } = view
+          // const inputText = '::iframe{src="https://example.com"}'
+
+          // const commands = ctx.get(commandsCtx)
+
+          // commands.call(toggleLinkCommand.key)
+
+          // const tr = state.tr.insertText(
+          //   inputText,
+          //   state.selection.from,
+          //   state.selection.to
+          // )
+
+          // dispatch(tr)
+
+          // // Apply input rule directly (in case text insertion isn't enough)
+          // iframeInputRule(ctx)
+          const commands = ctx.get(commandsCtx)
+          commands.call(toggleIframeCommand.key)
         },
       })
     }

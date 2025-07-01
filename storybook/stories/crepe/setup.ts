@@ -111,6 +111,9 @@ export function setup({ args, style, theme }: setupConfig) {
           math: {
             label: language === 'JA' ? '数式' : 'Math',
           },
+          iframe: {
+            label: language === 'JA' ? '数式' : 'Iframe',
+          },
         },
       },
       [Crepe.Feature.Placeholder]: {

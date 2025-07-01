@@ -118,6 +118,7 @@ export function getGroups(config?: ToolbarFeatureConfig, ctx?: Ctx) {
       },
     })
   }
+
   functionGroup.addItem('link', {
     icon: config?.linkIcon ?? linkIcon,
     active: (ctx) => {

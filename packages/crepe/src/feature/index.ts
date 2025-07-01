@@ -1,6 +1,7 @@
 import type { BlockEditFeatureConfig } from './block-edit'
 import type { CodeMirrorFeatureConfig } from './code-mirror'
 import type { CursorFeatureConfig } from './cursor'
+import type { IframeFeatureConfig } from './iframe'
 import type { ImageBlockFeatureConfig } from './image-block'
 import type { LatexFeatureConfig } from './latex'
 import type { LinkTooltipFeatureConfig } from './link-tooltip'
@@ -42,6 +43,8 @@ export enum CrepeFeature {
 
   /// Mathematical formula support with both inline and block math rendering using KaTeX.
   Latex = 'latex',
+
+  Iframe = 'iframe',
 }
 
 export interface CrepeFeatureConfig {
@@ -55,6 +58,7 @@ export interface CrepeFeatureConfig {
   [CrepeFeature.CodeMirror]?: CodeMirrorFeatureConfig
   [CrepeFeature.Table]?: TableFeatureConfig
   [CrepeFeature.Latex]?: LatexFeatureConfig
+  [CrepeFeature.Iframe]?: IframeFeatureConfig
 }
 
 export const defaultFeatures: Record<CrepeFeature, boolean> = {
@@ -68,4 +72,5 @@ export const defaultFeatures: Record<CrepeFeature, boolean> = {
   [CrepeFeature.CodeMirror]: true,
   [CrepeFeature.Table]: true,
   [CrepeFeature.Latex]: true,
+  [CrepeFeature.Iframe]: true,
 }

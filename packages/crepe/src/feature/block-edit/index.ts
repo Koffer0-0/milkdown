@@ -100,6 +100,10 @@ interface BlockEditConfig {
       label: string
       icon: string
     } | null
+    iframe: {
+      label: string
+      icon: string
+    } | null
   } | null
 }
 
